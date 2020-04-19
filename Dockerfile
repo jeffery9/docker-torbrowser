@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive VERSION=7.5.6 HOME=/home/anon
 
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
-    sed -i.bak 's/jessie main/jessie main contrib/g' /etc/apt/sources.list && \
+    sed -i 's/jessie main/jessie main contrib/g' /etc/apt/sources.list && \
     sed -i 's/deb.debian.org/mirrors.163.com/g' /etc/apt/sources.list && \
     sed -i 's/security.debian.org/mirrors.163.com/g' /etc/apt/sources.list && \
     apt-get update && apt-get install -y \
