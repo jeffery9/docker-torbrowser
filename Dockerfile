@@ -5,12 +5,11 @@ FROM debian:jessie
 
 ENV DEBIAN_FRONTEND=noninteractive VERSION=7.5.6 HOME=/home/anon
 
-
-RUN apt-get update && \
-    apt-get -y dist-upgrade && \
-    sed -i 's/jessie main/jessie main contrib/g' /etc/apt/sources.list && \
+RUN sed -i 's/jessie main/jessie main contrib/g' /etc/apt/sources.list && \
     sed -i 's/deb.debian.org/mirrors.163.com/g' /etc/apt/sources.list && \
     sed -i 's/security.debian.org/mirrors.163.com/g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get -y dist-upgrade && \
     apt-get update && apt-get install -y \
     flashplugin-nonfree \
     iceweasel \
